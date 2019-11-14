@@ -6,26 +6,6 @@
         <format>zip</format>
     </formats>
     <includeBaseDirectory>true</includeBaseDirectory>
-    <dependencySets>
-        <dependencySet>
-            <useProjectArtifact>false</useProjectArtifact>
-            <useTransitiveDependencies>true</useTransitiveDependencies>
-            <outputDirectory>libs</outputDirectory>
-            <unpack>false</unpack>
-            <excludes>
-                <exclude>${project.groupId}:*:*</exclude>
-            </excludes>
-        </dependencySet>
-    </dependencySets>
-    <moduleSets>
-        <moduleSet>
-            <useAllReactorProjects>true</useAllReactorProjects>
-            <binaries>
-                <outputDirectory>modules</outputDirectory>
-                <unpack>false</unpack>
-            </binaries>
-        </moduleSet>
-    </moduleSets>
     <fileSets>
         <fileSet>
             <directory>../</directory>
@@ -39,7 +19,6 @@
             </excludes>
 
             <includes>
-                <include>log4j2.xml</include>
                 <include>README.MD</include>
                 <include>LICENSE</include>
                 <include>bin/**</include>
@@ -53,6 +32,13 @@
                 <include>/**</include>
             </includes>
             <outputDirectory>docs</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>../waterdrop-core/target</directory>
+            <includes>
+                <include>waterdrop-core*</include>
+            </includes>
+            <outputDirectory>/lib</outputDirectory>
         </fileSet>
         <fileSet>
             <directory>${project.build.directory}/bin</directory>
